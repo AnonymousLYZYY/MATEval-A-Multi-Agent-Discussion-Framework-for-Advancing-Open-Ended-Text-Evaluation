@@ -144,7 +144,7 @@ def main():
     except FileNotFoundError:
         start_index = 0
 
-    with open('/media3/shiyi/agent/multi-agent-new/WP/disturbance_data/WP_test_change_final.json', 'r',
+    with open('WP_test_change_final.json', 'r',
               encoding='utf-8') as file:
         stories = json.load(file)
 
@@ -171,11 +171,11 @@ def main():
                 print(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] Processed {idx + 1}/{len(stories)} prompts")
                 print(no_multi_data[-1])
 
-                with open('/media3/shiyi/agent/multi-agent-new/WP/debate_result_new/no_multi.json', 'w',
+                with open('no_multi.json', 'w',
                           encoding='utf-8') as file:
                     json.dump(no_multi_data, file, ensure_ascii=False, indent=4)
 
-                with open('/media3/shiyi/agent/multi-agent-new/WP/debate_result_new/no_multi.pkl',
+                with open('no_multi.pkl',
                           'wb') as progress_file:
                     pickle.dump(idx + 1, progress_file)
                 break
