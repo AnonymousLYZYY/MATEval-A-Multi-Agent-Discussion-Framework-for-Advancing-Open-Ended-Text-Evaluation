@@ -1,1 +1,1 @@
-
+To test model generalizability, we conduct similar experiments on two Chinese datasets. These include the Chinese LOng Text understanding and generation LOT dataset, based on hundreds of words from human-written Chinese stories
