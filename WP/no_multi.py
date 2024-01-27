@@ -131,14 +131,14 @@ def no_multi(story_content, messages):
 
 def main():
     try:
-        with open('/media3/shiyi/agent/multi-agent-new/WP/debate_result_new/no_multi.json', 'r',
+        with open('no_multi.json', 'r',
                   encoding='utf-8') as file:
             no_multi_data = json.load(file)
     except FileNotFoundError:
         no_multi_data = []
 
     try:
-        with open('/media3/shiyi/agent/multi-agent-new/WP/debate_result_new/no_multi.pkl',
+        with open('no_multi.pkl',
                   'rb') as progress_file:
             start_index = pickle.load(progress_file)
     except FileNotFoundError:
