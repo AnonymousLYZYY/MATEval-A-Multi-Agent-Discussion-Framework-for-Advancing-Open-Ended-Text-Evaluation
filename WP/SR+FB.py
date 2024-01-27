@@ -431,20 +431,20 @@ def SR_FB_summary(story_content, history, messages):
 
 def main():
     try:
-        with open('/media3/shiyi/agent/multi-agent-new/WP/debate_result_new/WP_SR+FB.json', 'r',
+        with open('WP_SR+FB.json', 'r',
                   encoding='utf-8') as file:
             SR_FB_data = json.load(file)
     except FileNotFoundError:
         SR_FB_data = []
 
     try:
-        with open('/media3/shiyi/agent/multi-agent-new/WP/debate_result_new/WP_SR+FB.json',
+        with open('WP_SR+FB.json',
                   'rb') as progress_file:
             start_index = pickle.load(progress_file)
     except FileNotFoundError:
         start_index = 0
 
-    with open('/media3/shiyi/agent/multi-agent-new/WP/disturbance_data/WP_test_change_final.json', 'r',
+    with open('WP_test_change_final.json', 'r',
               encoding='utf-8') as file:
         stories = json.load(file)
 
@@ -567,11 +567,11 @@ def main():
                 print(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] Processed {idx + 1}/{len(stories)} prompts")
                 print(SR_FB_data[-1])
 
-                with open('/media3/shiyi/agent/multi-agent-new/WP/debate_result_new/WP_SR+FB.json', 'w',
+                with open('WP_SR+FB.json', 'w',
                           encoding='utf-8') as file:
                     json.dump(SR_FB_data, file, ensure_ascii=False, indent=4)
 
-                with open('/media3/shiyi/agent/multi-agent-new/WP/debate_result_new/WP_SR+FB.json',
+                with open('WP_SR+FB.json',
                           'wb') as progress_file:
                     pickle.dump(idx + 1, progress_file)
 
