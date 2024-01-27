@@ -392,20 +392,20 @@ def one_by_one_summary(story_content, history, messages):
 
 def main():
     try:
-        with open('/media3/shiyi/agent/multi-agent-new/WP/debate_result_new/WP_one_by_one+FB.json', 'r',
+        with open('WP_one_by_one+FB.json', 'r',
                   encoding='utf-8') as file:
             one_by_one_data = json.load(file)
     except FileNotFoundError:
         one_by_one_data = []
 
     try:
-        with open('/media3/shiyi/agent/multi-agent-new/WP/debate_result_new/WP_one_by_one+FB.pkl',
+        with open('WP_one_by_one+FB.pkl',
                   'rb') as progress_file:
             start_index = pickle.load(progress_file)
     except FileNotFoundError:
         start_index = 0
 
-    with open('/media3/shiyi/agent/multi-agent-new/WP/disturbance_data/WP_test_change_final.json', 'r',
+    with open('WP_test_change_final.json', 'r',
               encoding='utf-8') as file:
         stories = json.load(file)
 
@@ -493,11 +493,11 @@ def main():
                 print(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] Processed {idx + 1}/{len(stories)} prompts")
                 print(one_by_one_data[-1])
 
-                with open('/media3/shiyi/agent/multi-agent-new/WP/debate_result_new/WP_one_by_one+FB.json', 'w',
+                with open('WP_one_by_one+FB.json', 'w',
                           encoding='utf-8') as file:
                     json.dump(one_by_one_data, file, ensure_ascii=False, indent=4)
 
-                with open('/media3/shiyi/agent/multi-agent-new/WP/debate_result_new/WP_one_by_one+FB.pkl',
+                with open('WP_one_by_one+FB.pkl',
                           'wb') as progress_file:
                     pickle.dump(idx + 1, progress_file)
 
